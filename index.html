@@ -223,18 +223,46 @@
     /* About */
 
     .about-box {
-        padding: 35px;
-        border-radius: 25px;
-        background: rgba(255,255,255,0.045);
-        border: 1px solid rgba(255,255,255,0.08);
-        backdrop-filter: blur(15px);
-    }
+    position: relative;
+    overflow: hidden;
+    padding: 35px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.045);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.about-box::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: -100px;
+    right: -80px;
+    background: rgba(66,165,255,0.12);
+    filter: blur(60px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.about-box:hover {
+    transform: translateY(-5px);
+    border-color: rgba(66,165,255,0.3);
+            }
 
     .about-box p {
-        color: #b8bfcc;
-        line-height: 1.9;
-        font-size: 17px;
-    }
+    position: relative;
+    z-index: 1;
+    color: #b8bfcc;
+    line-height: 1.9;
+    font-size: 17px;
+}
+
+.about-box strong {
+    color: #ffffff;
+ }
 
     /* Skills */
 
