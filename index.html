@@ -1,0 +1,623 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>FAHIM | RareFahim</title>
+
+<meta name="description" content="The personal portfolio of Fahim — developer, creator and builder.">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #05070d;
+        color: #ffffff;
+        overflow-x: hidden;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    /* Background glow */
+
+    body::before {
+        content: "";
+        position: fixed;
+        width: 500px;
+        height: 500px;
+        top: -200px;
+        left: -150px;
+        background: rgba(0, 140, 255, 0.18);
+        filter: blur(120px);
+        border-radius: 50%;
+        z-index: -1;
+    }
+
+    body::after {
+        content: "";
+        position: fixed;
+        width: 450px;
+        height: 450px;
+        right: -180px;
+        bottom: -150px;
+        background: rgba(130, 60, 255, 0.16);
+        filter: blur(120px);
+        border-radius: 50%;
+        z-index: -1;
+    }
+
+    /* Navigation */
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 7%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(5, 7, 13, 0.65);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        z-index: 1000;
+    }
+
+    .logo {
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: 1px;
+    }
+
+    .logo span {
+        color: #42a5ff;
+    }
+
+    nav ul {
+        display: flex;
+        gap: 28px;
+        list-style: none;
+    }
+
+    nav ul a {
+        font-size: 14px;
+        color: #bfc5d1;
+        transition: 0.3s;
+    }
+
+    nav ul a:hover {
+        color: #ffffff;
+    }
+
+    /* Sections */
+
+    section {
+        padding: 100px 7%;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    /* Hero */
+
+    #home {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-top: 130px;
+    }
+
+    .hero {
+        max-width: 800px;
+    }
+
+    .small-text {
+        color: #42a5ff;
+        font-size: 14px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    .hero h1 {
+        font-size: clamp(55px, 13vw, 120px);
+        line-height: 0.95;
+        letter-spacing: -5px;
+        margin-bottom: 25px;
+    }
+
+    .gradient-text {
+        background: linear-gradient(90deg, #42a5ff, #8b5cf6, #00d9ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero p {
+        color: #aeb5c2;
+        font-size: 18px;
+        line-height: 1.8;
+        max-width: 650px;
+        margin: auto;
+    }
+
+    .buttons {
+        margin-top: 35px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        padding: 14px 24px;
+        border-radius: 50px;
+        border: 1px solid rgba(255,255,255,0.12);
+        transition: 0.3s;
+        font-size: 14px;
+    }
+
+    .btn-primary {
+        background: #ffffff;
+        color: #05070d;
+        font-weight: 700;
+    }
+
+    .btn:hover {
+        transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+        background: rgba(255,255,255,0.05);
+        color: #ffffff;
+    }
+
+    /* Section title */
+
+    .section-title {
+        font-size: 38px;
+        margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+        color: #8f98a8;
+        margin-bottom: 40px;
+    }
+
+    /* About */
+
+    .about-box {
+        padding: 35px;
+        border-radius: 25px;
+        background: rgba(255,255,255,0.045);
+        border: 1px solid rgba(255,255,255,0.08);
+        backdrop-filter: blur(15px);
+    }
+
+    .about-box p {
+        color: #b8bfcc;
+        line-height: 1.9;
+        font-size: 17px;
+    }
+
+    /* Skills */
+
+    .skills {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 15px;
+    }
+
+    .skill {
+        padding: 22px;
+        text-align: center;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.045);
+        border: 1px solid rgba(255,255,255,0.07);
+        transition: 0.3s;
+    }
+
+    .skill:hover {
+        transform: translateY(-5px);
+        border-color: rgba(66,165,255,0.4);
+    }
+
+    .skill-icon {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .skill p {
+        color: #c5cbd5;
+        font-size: 14px;
+    }
+
+    /* Projects */
+
+    .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+    }
+
+    .project {
+        padding: 28px;
+        border-radius: 22px;
+        background: rgba(255,255,255,0.045);
+        border: 1px solid rgba(255,255,255,0.08);
+        transition: 0.35s;
+    }
+
+    .project:hover {
+        transform: translateY(-8px);
+        border-color: rgba(66,165,255,0.35);
+    }
+
+    .project-icon {
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+
+    .project h3 {
+        margin-bottom: 12px;
+        font-size: 21px;
+    }
+
+    .project p {
+        color: #929baa;
+        line-height: 1.7;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .project-tag {
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 20px;
+        background: rgba(66,165,255,0.1);
+        color: #66b5ff;
+        font-size: 11px;
+    }
+
+    /* Contact */
+
+    .contact-box {
+        text-align: center;
+        padding: 50px 25px;
+        border-radius: 28px;
+        background: linear-gradient(
+            135deg,
+            rgba(66,165,255,0.08),
+            rgba(139,92,246,0.08)
+        );
+        border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact-box p {
+        color: #9da5b4;
+        margin: 15px auto 25px;
+        max-width: 550px;
+        line-height: 1.7;
+    }
+
+    /* Footer */
+
+    footer {
+        text-align: center;
+        padding: 35px 20px;
+        color: #737b89;
+        font-size: 13px;
+        border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    footer strong {
+        color: #ffffff;
+    }
+
+    /* Mobile */
+
+    @media (max-width: 700px) {
+
+        nav {
+            padding: 17px 5%;
+        }
+
+        nav ul {
+            display: none;
+        }
+
+        section {
+            padding: 80px 5%;
+        }
+
+        .hero h1 {
+            letter-spacing: -3px;
+        }
+
+        .hero p {
+            font-size: 16px;
+        }
+
+        .section-title {
+            font-size: 32px;
+        }
+
+        .about-box {
+            padding: 25px;
+        }
+    }
+</style>
+
+</head><body><!-- Navigation -->
+
+<nav>
+    <div class="logo">
+        Rare<span>Fahim</span>
+    </div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+
+<!-- Home -->
+
+<section id="home">
+
+    <div class="hero">
+
+        <div class="small-text">
+            Welcome to my world
+        </div>
+
+        <h1>
+            I'm <span class="gradient-text">FAHIM</span>
+        </h1>
+
+        <p>
+            Developer, creator and technology enthusiast.
+            I build things, experiment with ideas and turn
+            imagination into projects.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#projects" class="btn btn-primary">
+                Explore My Work
+            </a>
+
+            <a href="#about" class="btn btn-secondary">
+                About Me
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- About -->
+
+<section id="about">
+
+    <h2 class="section-title">
+        About Me
+    </h2>
+
+    <p class="section-subtitle">
+        A little bit about the person behind RareFahim.
+    </p>
+
+    <div class="about-box">
+
+        <p>
+            Hi, I'm Fahim. I'm interested in technology,
+            web development, gaming and creating digital
+            experiences. I enjoy learning new things and
+            turning ideas into real projects.
+        </p>
+
+        <br>
+
+        <p>
+            This website is my personal space where I share
+            who I am, what I'm learning and the projects
+            I've created.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- Skills -->
+
+<section id="skills">
+
+    <h2 class="section-title">
+        Skills
+    </h2>
+
+    <p class="section-subtitle">
+        Technologies and tools I'm working with.
+    </p>
+
+    <div class="skills">
+
+        <div class="skill">
+            <div class="skill-icon">🌐</div>
+            <p>HTML</p>
+        </div>
+
+        <div class="skill">
+            <div class="skill-icon">🎨</div>
+            <p>CSS</p>
+        </div>
+
+        <div class="skill">
+            <div class="skill-icon">⚡</div>
+            <p>JavaScript</p>
+        </div>
+
+        <div class="skill">
+            <div class="skill-icon">🚀</div>
+            <p>GitHub</p>
+        </div>
+
+        <div class="skill">
+            <div class="skill-icon">🗄️</div>
+            <p>Supabase</p>
+        </div>
+
+        <div class="skill">
+            <div class="skill-icon">💡</div>
+            <p>Web Development</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Projects -->
+
+<section id="projects">
+
+    <h2 class="section-title">
+        My Projects
+    </h2>
+
+    <p class="section-subtitle">
+        Things I've built and experimented with.
+    </p>
+
+    <div class="projects">
+
+        <div class="project">
+
+            <div class="project-icon">🎁</div>
+
+            <h3>
+                Surprise Website Maker
+            </h3>
+
+            <p>
+                A web tool that lets people create
+                personalized surprise websites with
+                unique shareable links.
+            </p>
+
+            <span class="project-tag">
+                HTML • CSS • JavaScript • Supabase
+            </span>
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-icon">🎂</div>
+
+            <h3>
+                Birthday Surprise
+            </h3>
+
+            <p>
+                An interactive birthday surprise website
+                featuring animations, music, photos and
+                a personalized message.
+            </p>
+
+            <span class="project-tag">
+                HTML • CSS • JavaScript
+            </span>
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-icon">💻</div>
+
+            <h3>
+                More Coming Soon
+            </h3>
+
+            <p>
+                I'm always experimenting with new ideas.
+                More projects will appear here as I build them.
+            </p>
+
+            <span class="project-tag">
+                Future Project
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Contact -->
+
+<section id="contact">
+
+    <div class="contact-box">
+
+        <h2 class="section-title">
+            Let's Connect
+        </h2>
+
+        <p>
+            Interested in my work or want to connect?
+            You can find me online.
+        </p>
+
+        <div class="buttons">
+
+            <a
+                href="https://github.com/StarPro1"
+                target="_blank"
+                class="btn btn-primary">
+                GitHub
+            </a>
+
+            <a
+                href="#"
+                class="btn btn-secondary">
+                YouTube
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Footer -->
+
+<footer>
+    © 2026 <strong>FAHIM</strong> · RareFahim
+</footer>
+
+</body>
+  </html>
