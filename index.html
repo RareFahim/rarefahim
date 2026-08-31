@@ -264,6 +264,63 @@
     color: #ffffff;
  }
 
+/* Goals & Interests */
+
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.goal-card {
+    position: relative;
+    overflow: hidden;
+    padding: 28px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.045);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.goal-card::before {
+    content: "";
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    top: -70px;
+    right: -60px;
+    background: rgba(66,165,255,0.10);
+    filter: blur(45px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.goal-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(66,165,255,0.35);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+.goal-icon {
+    font-size: 34px;
+    margin-bottom: 18px;
+}
+
+.goal-card h3 {
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.goal-card p {
+    color: #929baa;
+    line-height: 1.7;
+    font-size: 14px;
+}    
+    
+   
     /* Skills */
 
     .skills {
@@ -476,6 +533,77 @@
 
 <!-- About -->
 
+    <!-- Goals & Interests -->
+
+<section id="goals">
+
+    <h2 class="section-title">
+        Goals & <span class="gradient-text">Interests</span>
+    </h2>
+
+    <p class="section-subtitle">
+        The things that keep me curious and moving forward.
+    </p>
+
+    <div class="goals-grid">
+
+        <div class="goal-card">
+            <div class="goal-icon">💻</div>
+            <h3>Web Development</h3>
+            <p>
+                Building creative, useful and interactive websites
+                while becoming a better developer with every project.
+            </p>
+        </div>
+
+        <div class="goal-card">
+            <div class="goal-icon">🤖</div>
+            <h3>AI & Technology</h3>
+            <p>
+                Exploring artificial intelligence and discovering
+                new ways technology can turn ideas into reality.
+            </p>
+        </div>
+
+        <div class="goal-card">
+            <div class="goal-icon">🎮</div>
+            <h3>Game Development</h3>
+            <p>
+                Learning how games are made and experimenting with
+                ideas that could become interactive experiences.
+            </p>
+        </div>
+
+        <div class="goal-card">
+            <div class="goal-icon">🚀</div>
+            <h3>Build & Experiment</h3>
+            <p>
+                I learn best by building. I like taking an idea,
+                experimenting with it and seeing how far I can take it.
+            </p>
+        </div>
+
+        <div class="goal-card">
+            <div class="goal-icon">🧠</div>
+            <h3>Keep Learning</h3>
+            <p>
+                Technology never stops changing, so neither does
+                my curiosity. There's always something new to learn.
+            </p>
+        </div>
+
+        <div class="goal-card">
+            <div class="goal-icon">🌌</div>
+            <h3>Big Ideas</h3>
+            <p>
+                I enjoy asking one simple question:
+                “Can I actually build this?”
+            </p>
+        </div>
+
+    </div>
+
+</section>
 
 
 
