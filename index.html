@@ -1021,5 +1021,34 @@
     © 2026 <strong>FAHIM</strong> · RareFahim
 </footer>
 
+<script>
+    const revealElements = document.querySelectorAll(
+        "section, .project, .goal-card, .skill, .about-box, .contact-box"
+    );
+
+    revealElements.forEach(element => {
+        element.classList.add("reveal");
+    });
+
+    const revealObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                } else {
+                    entry.target.classList.remove("show");
+                }
+            });
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    revealElements.forEach(element => {
+        revealObserver.observe(element);
+    });
+</script>
+
 </body>
-  </html>
+</html>
